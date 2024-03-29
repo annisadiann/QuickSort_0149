@@ -40,7 +40,7 @@ void swap(int x, int y)
     mov_count++;
 }
 
-void q_short( int low, int high)
+void q_short(int low, int high)
 {
 
     int temp;
@@ -68,7 +68,7 @@ void q_short( int low, int high)
         {
             j--; //step 8
             cmp_count++;
-        } 
+        }
         cmp_count++;
         if (i < j) // step 9
         {
@@ -80,6 +80,15 @@ void q_short( int low, int high)
     if (low < j) { //step 11
         //swap the pivot element with the element at index j
         swap(low, j);
-    } 
+    }
+
+    //recursive call to sort the left sub array
+    q_short(low, j - 1); //step 12
+
+    //recursive call to sort the right sub array
+
+    q_short(j + 1, high); //step 13
+
+}
 
 
